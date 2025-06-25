@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RCV SnipPro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../libs/fabric.min.js"></script>
+</head>
+<body>
+  <div id="toolbar">
+    <div class="tool-section">
+      <button id="select-btn" title="Select (V)"><i class="fas fa-mouse-pointer"></i></button>
+      <button id="draw-btn" title="Draw (D)"><i class="fas fa-pencil-alt"></i></button>
+      <button id="arrow-btn" title="Arrow (A)"><i class="fas fa-long-arrow-alt-right"></i></button>
+      <button id="rect-btn" title="Rectangle (R)"><i class="far fa-square"></i></button>
+      <button id="circle-btn" title="Circle (C)"><i class="far fa-circle"></i></button>
+      <button id="line-btn" title="Line (L)"><i class="fas fa-minus"></i></button>
+    </div>
+    
+    <div class="tool-section">
+      <button id="text-btn" title="Text (T)"><i class="fas fa-font"></i></button>
+      <button id="highlight-btn" title="Highlight (H)"><i class="fas fa-highlighter"></i></button>
+      <button id="blur-btn" title="Blur (B)"><i class="fas fa-eye-slash"></i></button>
+      <button id="crop-btn" title="Crop (X)"><i class="fas fa-crop"></i></button>
+    </div>
+    
+    <div class="tool-section">
+      <div class="color-picker">
+        <input type="color" id="color-picker" value="#ff0000">
+        <span id="current-color"></span>
+      </div>
+      <input type="range" id="brush-size" min="1" max="50" value="3">
+      <span id="brush-size-value">3px</span>
+    </div>
+    
+    <div class="tool-section">
+      <button id="undo-btn" title="Undo (Ctrl+Z)"><i class="fas fa-undo"></i></button>
+      <button id="redo-btn" title="Redo (Ctrl+Y)"><i class="fas fa-redo"></i></button>
+      <button id="clear-btn" title="Clear"><i class="fas fa-trash-alt"></i></button>
+    </div>
+    
+    <div class="tool-section">
+      <button id="save-btn" title="Save (Ctrl+S)"><i class="fas fa-save"></i> Save</button>
+      <button id="copy-btn" title="Copy to Clipboard (Ctrl+C)"><i class="far fa-copy"></i> Copy</button>
+      <button id="share-btn" title="Share (Alt+S)"><i class="fa fa-share-alt"></i> Share</button>
+    </div>
+  </div>
+  
+  <div id="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+  
+  <div id="status-bar">
+    <span id="cursor-position">0, 0</span>
+    <span id="image-size">0 x 0</span>
+  </div>
+  
+  <script src="../js/editor.js"></script>
+</body>
+</html>
