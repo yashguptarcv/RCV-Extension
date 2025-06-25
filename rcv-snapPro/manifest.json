@@ -6,7 +6,8 @@
     "activeTab",
     "scripting",
     "tabs",
-    "storage"
+    "storage",
+    "commands"
   ],
   "background": {
     "service_worker": "background.js"
@@ -20,6 +21,15 @@
     "32": "icons/icon.jpg",
     "48": "icons/icon.jpg",
     "128": "icons/icon.jpg"
+  },
+   "commands": {
+    "take-screenshot": {
+      "suggested_key": {
+        "default": "Alt+S",
+        "mac": "Command+S"
+      },
+      "description": "Take a screenshot"
+    }
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
