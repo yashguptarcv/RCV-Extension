@@ -11,8 +11,8 @@ Follow these steps to install the extension manually in your Chrome browser:
 ### 1️⃣ Download / Clone this repository
 
 ```bash
-git clone https://github.com/yourusername/rcv-screenshot-extension.git
-cd rcv-screenshot-extension
+git clone https://github.com/yashguptarcv/RCV-Extension.git
+cd rcv-snapPro
 ````
 
 ---
