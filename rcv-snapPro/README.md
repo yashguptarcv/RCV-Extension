@@ -51,5 +51,5 @@ You can pin it to the toolbar and start using it.
 * Capture visible screen
 * Image editor: crop, draw, text, arrows, blur, shapes
 * Save screenshots locally
-* Generate shareable image links (coming soon)
+* Generate shareable image links
 * Copy clipboard
