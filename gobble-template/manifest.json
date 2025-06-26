@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Gobble Template",
+  "version": "1.0",
+  "description": "Save and insert email templates into any textarea.",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://roilift.gobblecrm.com/*"],
+      "js": ["scripts/jquery.min.js", "scripts/content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

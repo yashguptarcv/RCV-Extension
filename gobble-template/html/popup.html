@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RCV Gobble Template Manager</title>
+  <link href="../styles/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <h5>Save Template</h5>
+  <form id="templateForm">
+    <input type="text" id="templateTitle" placeholder="Template Title" required>
+    <textarea id="templateContent" placeholder="Template Content" rows="10" required></textarea>
+    <button type="submit">Save</button>
+  </form>
+
+  <hr>
+
+  <h6>Saved Templates</h6>
+  <ul id="templateList"></ul>
+
+  <script src="../scripts/popup.js"></script>
+</body>
+</html>
