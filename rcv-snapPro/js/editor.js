@@ -1,3 +1,5 @@
+const IMGBB_API_KEY = "5fb207b9578b723d96c54d47c2134a2c"; // replace with your actual key
+
 let canvas;
 let currentMode = 'select';
 let history = [];
@@ -424,33 +426,39 @@ async function generateShareLink() {
 
     // Convert canvas to blob
     const dataURL = canvas.toDataURL({ format: 'png', quality: 0.8 });
-    const blob = await (await fetch(dataURL)).blob();
-    
-    // Create form data
-    const formData = new FormData();
-    formData.append('image', blob, `screenshot_${Date.now()}.png`);
+    // const blob = await (await fetch(dataURL)).blob();
+    const base64Image = dataURL.split(',')[1];
 
-    // Upload to your local WAMP server
-    const response = await fetch('http://192.168.1.143/RCV/upload.php', {
+    // // Upload to your local WAMP server
+    const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
       method: 'POST',
-      body: formData
+      body: new URLSearchParams({
+        image: base64Image
+      })
     });
-
-    if (!response.ok) {
-      throw new Error('Upload failed with status: ' + response.status);
-    }
 
     const result = await response.json();
     
-    if (!result.success) {
+    if (!result.success && result.data.url) {
       throw new Error(result.message || 'Upload failed');
     }
 
     // Create shareable link
-    const shareableLink = `http://192.168.1.143/RCV/${result.filename}`;
+    const shareableLink = result.data.url;
 
     // Copy to clipboard
-    await navigator.clipboard.writeText(shareableLink);
+    if (document.hasFocus()) {
+      await navigator.clipboard.writeText(shareableLink);
+    } else {
+      const tempInput = document.createElement('input');
+      
+      tempInput.value = shareableLink;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
     
   } catch (err) {
     console.error('Error generating share link:', err);
@@ -462,6 +470,8 @@ async function generateShareLink() {
       shareBtn.innerHTML = '<i class="fas fa-share"></i> Share';
     }
   }
+
+
 }
 
 // Blur functions
