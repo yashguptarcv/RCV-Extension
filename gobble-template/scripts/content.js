@@ -59,7 +59,8 @@
                     const $textareaMessage = $(textareaSelector);
                     if ($textareaMessage.length > 0) {
                         if (e.target.value != '-- Saved Templates --') {
-                            $textareaMessage.html(e.target.value);
+                            
+                            $textareaMessage.html(e.target.value.replace(/\n/g, "<br>"));
                         } else {
                             $textareaMessage.html('');
                         }
